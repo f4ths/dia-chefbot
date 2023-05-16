@@ -52,7 +52,8 @@ with input_container:
 
 # Function for taking user prompt as input followed by producing AI generated responses
 def generate_response():
-	chatbot = hugchat.ChatBot()
+	# Initialize the chatbot, cookie_path used for authentication to HuggingFace
+	chatbot = hugchat.ChatBot(cookie_path="cookies.json")
 
 	# Include the entire conversation history in the context
 	context = ' '.join(conversation_history)
