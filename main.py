@@ -18,7 +18,8 @@ st.markdown("<h3 style='text-align: left;'>Start Chatting</h3>", unsafe_allow_ht
 
 # Initialize session states
 if 'generated' not in st.session_state:
-	st.session_state['generated'] = ["Hi I'm Word2Rec, your personal AI-powered recipe generator. Please list the ingredients you have in your kitchen and I'll suggest recipes you can make!"]
+	st.session_state['generated'] = [
+		"Hi I'm Word2Rec, your personal AI-powered recipe generator. Please list the ingredients you have in your kitchen and I'll suggest recipes you can make!"]
 if 'past' not in st.session_state:
 	st.session_state['past'] = ["Hi!"]
 
@@ -36,6 +37,7 @@ initial_prompt = """As an AI-powered recipe generator, you assist users in findi
 
 # Add the initial prompt to the conversation history
 conversation_history.append(initial_prompt)
+
 
 # Function for taking user provided prompt as input
 def get_text():
