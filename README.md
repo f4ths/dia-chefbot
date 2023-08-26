@@ -52,3 +52,12 @@ Run this command to have an instance of the chefbot open on your browser:
 streamlit run main.py
 ```
 ![github1](https://github.com/f4ths/dia-chefbot/assets/91867823/f7baec20-03ae-43f2-a9d9-ad5f2473c454)
+
+Inputting ingredients will cause the chatbot to output a suitable recipe which uses the provided ingredients:
+
+![github](https://github.com/f4ths/dia-chefbot/assets/91867823/143892d5-da4d-4eec-a790-cba7b0737330)
+
+![github2](https://github.com/f4ths/dia-chefbot/assets/91867823/7b81cf6c-2267-4aba-a153-1d5304d0ee97)
+
+
+
