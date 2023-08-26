@@ -1,6 +1,22 @@
 import streamlit as st
 from streamlit_chat import message
 from hugchat import hugchat
+from hugchat.login import Login
+import os
+
+email = os.environ.get('HUGGINGFACE_EMAIL')
+passwd = os.environ.get('HUGGINGFACE_PASSWORD')
+
+if not email or not passwd:
+	raise ValueError("Missing environment variables for email or password.")
+
+# Log in to huggingface and grant authorization to huggingchat
+sign = Login(email, passwd)
+cookies = sign.login()
+
+# Save cookies to local directory
+cookie_path_dir = ".cookies_snapshot"
+sign.saveCookiesToDir(cookie_path_dir)
 
 # Setting the Streamlit page configuration
 st.set_page_config(page_title="Word2Rec", page_icon="👨‍🍳🤖")
@@ -55,7 +71,7 @@ with input_container:
 # Function for taking user prompt as input followed by producing AI generated responses
 def generate_response():
 	# Initialize the chatbot, cookie_path used for authentication to HuggingFace
-	chatbot = hugchat.ChatBot(cookie_path="cookies.json")
+	chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
 	# Include the entire conversation history in the context
 	context = ' '.join(conversation_history)
